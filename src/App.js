@@ -1,13 +1,15 @@
-// import logo from './logo.svg';
+
+import NavigationBar from './components/navigation/navigation-bar';
 import './css/styles.css';
 
 function App() {
   return (
-    <div className="App">
+    <>
+      <NavigationBar />
       <header className="App-header">
         <h1>HASGDJSAGDSHA</h1>
       </header>
-    </div>
+    </>
   );
 }
 
