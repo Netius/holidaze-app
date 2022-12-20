@@ -11804,6 +11804,22 @@ textarea.form-control-lg {
   font-family: "opensans-bold";
   src: url("../fonts/OpenSans-Bold.ttf") format("truetype");
 }
+h1, .h1 {
+  font-family: "montserrat-bold", sans-serif;
+}
+
+h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+  font-family: "montserrat-semibold", sans-serif;
+}
+
+b, a {
+  font-family: "opensans-bold", serif;
+}
+
+body {
+  font-family: "opensans-regular", serif;
+}
+
 .navbar__logo {
   color: #F26E50;
   font-family: "montserrat-bold", sans-serif;

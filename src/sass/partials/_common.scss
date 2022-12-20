@@ -1,0 +1,14 @@
+h1{
+    font-family: $font-heading-bold;
+}
+h2,h3,h4,h5{
+    font-family: $font-heading-semibold;
+}
+
+b , a{
+    font-family: $font-text-bold;
+}
+
+body{
+    font-family: $font-text-regular;
+}

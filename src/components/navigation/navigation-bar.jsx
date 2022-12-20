@@ -10,7 +10,7 @@ function NavigationBar() {
 		<Router>
 			<nav className="navbar navbar-expand-lg bg-dark navbar-dark">
 				<div className="container-fluid">
-					<Link className="navbar-brand navbar__logo" title="Holidaze" to="/">
+					<Link className="fs-3 navbar-brand navbar__logo" title="Holidaze" to="/">
 						Holidaze
 					</Link>
 					<button
