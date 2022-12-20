@@ -1,0 +1,16 @@
+$font-text-regular: "opensans-regular", serif;
+$font-text-bold: "opensans-bold", serif;
+$font-heading-semibold: "montserrat-semibold", sans-serif;
+$font-heading-bold: "montserrat-bold", sans-serif;
+
+$colours: (
+   red-holidaze:  #A63E26,
+   orange-holidaze: #F26E50,
+   green-holidaze: #16A672,
+   lightblue-holidaze: #386DF2,
+   darkblue-holidaze: #2E50A6,
+);
+
+@function getColor($color) {
+    @return map-get($colours, $color);
+}
