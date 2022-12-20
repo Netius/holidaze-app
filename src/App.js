@@ -1,12 +1,16 @@
 import NavigationBar from './components/navigation/navigation-bar';
+import Footer from './components/footer/footer';
 
 function App() {
   return (
     <>
-      <NavigationBar />
-      <header className="App-header">
-        <h1>HASGDJSAGDSHA</h1>
-      </header>
+      <div className='wrapper'>
+        <NavigationBar />
+        <header className="container-fluid">
+          <h1>HOLIDAZE</h1>
+        </header>
+      </div>
+      <Footer />
     </>
   );
 }

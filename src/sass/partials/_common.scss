@@ -1,3 +1,6 @@
+html, body {
+    height: 100% !important;
+}
 h1{
     font-family: $font-heading-bold;
 }
@@ -11,4 +14,7 @@ b , a{
 
 body{
     font-family: $font-text-regular;
+}
+.wrapper{
+    min-height: calc(100vh - 40px) !important;
 }
