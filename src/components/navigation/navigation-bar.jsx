@@ -1,7 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import AdminPage from "../admin/AdminPage";
 import ContactPage from "../contact/contact-page";
 import ErrorPage from "../error/error-page";
+import HomePage from "../home/HomePage";
 import HotelsPage from "../hotels/hotels-page";
 import LoginPage from "../login/login-page";
 
@@ -46,10 +48,12 @@ function NavigationBar() {
 				</div>
 			</nav>
 			<Routes>
-				<Route path="/hotels" element={<HotelsPage />} />
+				<Route exact="true" path="/hotels" element={<HotelsPage />} />
+				<Route path="/" element={<HomePage />} />
 				<Route path="/contact" element={<ContactPage />} />
 				<Route path="/login" element={<LoginPage />} />
-				<Route path="*" element={<ErrorPage />} />
+				<Route path="/admin" element={<AdminPage />} />
+				<Route path="*" element={<ErrorPage to="/" />} />
 			</Routes>
 		</Router>
 	);
