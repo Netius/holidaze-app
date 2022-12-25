@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import AdminPage from "../admin/AdminPage";
+import AdminPage from "../admin/admin-page";
 import ContactPage from "../contact/contact-page";
 import ErrorPage from "../error/error-page";
-import HomePage from "../home/HomePage";
+import HomePage from "../home/home-page";
 import HotelsPage from "../hotels/hotels-page";
 import LoginPage from "../login/login-page";
 
