@@ -11825,12 +11825,15 @@ body {
 }
 
 .wrapper {
-  min-height: calc(100vh - 40px) !important;
+  min-height: calc(100vh - 122px) !important;
 }
 
 .navbar__logo {
   color: #F26E50;
   font-family: "montserrat-bold", sans-serif;
+}
+.navbar__logo:hover {
+  color: #A63E26;
 }
 
 /*# sourceMappingURL=styles.css.map */

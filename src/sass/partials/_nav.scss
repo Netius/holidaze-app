@@ -2,5 +2,9 @@
     &__logo{
      color: getColor(orange-holidaze);
      font-family: $font-heading-bold;
+        &:hover{
+            color: getColor(red-holidaze);
+        }
     }
+
  }
