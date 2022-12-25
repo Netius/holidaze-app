@@ -1,16 +1,16 @@
 import NavigationBar from './components/navigation/navigation-bar';
 import Footer from './components/footer/footer';
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (
     <>
-      <div className='wrapper'>
-        <NavigationBar />
-        <header className="container-fluid">
-          <h1>HOLIDAZE</h1>
-        </header>
-      </div>
-      <Footer />
+      <AuthProvider>
+        <div className='wrapper'>
+          <NavigationBar />
+        </div>
+        <Footer />
+      </AuthProvider>
     </>
   );
 }
