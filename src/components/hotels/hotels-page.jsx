@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import Heading from "../../common/Heading";
 
 function HotelsPage() {
-  return (
-    <div>hotels-page</div>
-  )
+	return (
+		<div className="container-fluid text-center">
+			<Heading header={"Hotels"} />
+		</div>
+	);
 }
 
 export default HotelsPage;

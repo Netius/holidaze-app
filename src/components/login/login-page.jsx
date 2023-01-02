@@ -12,9 +12,9 @@ function LoginPage() {
 	});
 
 	return (
-		<>
+		<div className="container-fluid text-center">
 			<Heading header={"Login"} />
-		</>
+		</div>
 	);
 }
 

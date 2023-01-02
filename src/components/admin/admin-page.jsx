@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Heading from "../../common/Heading";
 import AuthContext from "../../context/AuthContext";
 
 function AdminPage() {
@@ -12,11 +13,14 @@ function AdminPage() {
 
 	return (
 		<>
-			<ul>
-				<li>{auth?.user_email}</li>
-				<li>{auth?.user_nicename}</li>
-				<li className="text-break">{auth?.token}</li>
-			</ul>
+			<div className="container-fluid text-center">
+				<Heading header={"Admin"} />
+				<ul>
+					<li>{auth?.user_email}</li>
+					<li>{auth?.user_nicename}</li>
+					<li className="text-break">{auth?.token}</li>
+				</ul>
+			</div>
 		</>
 	);
 }
