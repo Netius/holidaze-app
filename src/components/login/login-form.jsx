@@ -10,6 +10,7 @@ import { BASE_URL, TOKEN_PATH } from "../../constants/api";
 import SpinnerLoading from "../../common/spinner-loading";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
+import SubHeading from "../../common/subheading";
 
 function LoginForm() {
 	const url = BASE_URL + TOKEN_PATH;
@@ -53,33 +54,36 @@ function LoginForm() {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit(onSubmit)} className="login__container container-sm mt-5">
-				<div className="form-group">
-					<fieldset disabled={submitting}>
-						<input
-							className="mt-3 form-control"
-							name="username"
-							placeholder="Username"
-							{...register("username", { required: true })}
-						/>
-						{errors.username && <FormWarning>{errors.username.message}</FormWarning>}
+			<SubHeading header="Only for administrator i Holidaze" />
+			<div className="login">
+				<form onSubmit={handleSubmit(onSubmit)} className="login__container container-sm">
+					<div className="form-group">
+						<fieldset disabled={submitting}>
+							<input
+								className="mt-3 form-control"
+								name="username"
+								placeholder="Username"
+								{...register("username", { required: true })}
+							/>
+							{errors.username && <FormWarning>{errors.username.message}</FormWarning>}
 
-						<input
-							className="mt-3 form-control"
-							name="password"
-							placeholder="Password"
-							type="password"
-							{...register("password", { required: true })}
-						/>
+							<input
+								className="mt-3 form-control"
+								name="password"
+								placeholder="Password"
+								type="password"
+								{...register("password", { required: true })}
+							/>
 
-						{errors.password && <FormWarning>{errors.password.message}</FormWarning>}
-						<button className="px-5 mt-3 btn btn-primary" type="submit">
-							{submitting ? "Logging" : "Login"} {submitting && <SpinnerLoading />}
-						</button>
-					</fieldset>
-				</div>
-				{loginError && <FormError>{loginError}</FormError>}
-			</form>
+							{errors.password && <FormWarning>{errors.password.message}</FormWarning>}
+							<button className="px-5 mt-3 btn btn-primary" type="submit">
+								{submitting ? "Logging" : "Login"} {submitting && <SpinnerLoading />}
+							</button>
+						</fieldset>
+					</div>
+					{loginError && <FormError>{loginError}</FormError>}
+				</form>
+			</div>
 		</>
 	);
 }
