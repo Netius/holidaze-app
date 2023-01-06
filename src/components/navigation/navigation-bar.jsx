@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import AdminPage from "../admin/admin-page";
 import ContactPage from "../contact/contact-page";
@@ -6,8 +6,15 @@ import ErrorPage from "../error/error-page";
 import HomePage from "../home/home-page";
 import HotelsPage from "../hotels/hotels-page";
 import LoginPage from "../login/login-page";
+import AuthContext from "../../context/AuthContext";
 
 function NavigationBar() {
+	const [auth, setAuth] = useContext(AuthContext);
+
+	function logout() {
+		setAuth(null);
+	}
+
 	return (
 		<Router>
 			<nav className="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -38,11 +45,37 @@ function NavigationBar() {
 									Contact us
 								</Link>
 							</li>
-							<li className="nav-item">
+							{auth ? (
+								<>
+									<li className="nav-item">
+										<Link exact="true" to="/admin" title="Admin page" className="nav-link">
+											Admin
+										</Link>
+									</li>
+									<li className="nav-item">
+										<Link
+											exact="true"
+											to="/login"
+											title="Logout"
+											onClick={logout}
+											className="nav-link link-danger"
+										>
+											Log out
+										</Link>
+									</li>
+								</>
+							) : (
+								<li>
+									<Link exact="true" to="/login" title="Login for administrator" className="nav-link">
+										Login
+									</Link>
+								</li>
+							)}
+							{/* <li className="nav-item">
 								<Link className="nav-link" title="Login for administrator" to="/login">
 									Login
 								</Link>
-							</li>
+							</li> */}
 						</ul>
 					</div>
 				</div>
