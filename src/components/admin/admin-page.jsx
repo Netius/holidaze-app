@@ -16,8 +16,8 @@ function AdminPage() {
 			<div className="container-fluid text-center">
 				<Heading header={"Admin"} />
 				<ul>
-					<li>{auth?.user_email}</li>
-					<li>{auth?.user_nicename}</li>
+					<li>{auth?.user.email}</li>
+					<li>{auth?.user.username}</li>
 					<li className="text-break">{auth?.token}</li>
 				</ul>
 			</div>

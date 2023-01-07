@@ -6,17 +6,17 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import FormError from "../../common/form-error";
 import FormWarning from "../../common/form-warning";
-import { BASE_URL, TOKEN_PATH } from "../../constants/api";
+import { AUTH_URL } from "../../constants/api";
 import SpinnerLoading from "../../common/spinner-loading";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import SubHeading from "../../common/subheading";
 
 function LoginForm() {
-	const url = BASE_URL + TOKEN_PATH;
+	const url = AUTH_URL;
 
 	const schema = yup.object().shape({
-		username: yup.string().required("Please enter your username"),
+		email: yup.string().required("Please enter your email"),
 		password: yup.string().required("Please enter your password"),
 	});
 
@@ -35,12 +35,14 @@ function LoginForm() {
 	});
 
 	async function onSubmit(data) {
-		console.log(data);
 		setSubmitting(true);
 		setLoginError(null);
 
+		const dataLogin = { identifier: data.email, password: data.password };
+
 		try {
-			const response = await axios.post(url, data);
+			console.log(data);
+			const response = await axios.post(url, dataLogin);
 			console.log("response", response.data);
 			setAuth(response.data);
 			navigate("/admin");
@@ -61,11 +63,12 @@ function LoginForm() {
 						<fieldset disabled={submitting}>
 							<input
 								className="mt-3 form-control"
-								name="username"
-								placeholder="Username"
-								{...register("username", { required: true })}
+								name="email"
+								type="email"
+								placeholder="Email"
+								{...register("email", { required: true })}
 							/>
-							{errors.username && <FormWarning>{errors.username.message}</FormWarning>}
+							{errors.email && <FormWarning>{errors.email.message}</FormWarning>}
 
 							<input
 								className="mt-3 form-control"
