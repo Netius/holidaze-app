@@ -1,12 +1,10 @@
-export default function ErrorPage() {
+import Heading from "../../common/Heading";
 
-  return (
-    <div id="error-page">
-      <h1>Oops!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
-      <p>
-        {/* <i>{error.statusText || error.message}</i> */}
-      </p>
-    </div>
-  );
+export default function ErrorPage() {
+	return (
+		<div id="error-page" className="text-center">
+			<Heading header={"Oops!"} />
+			<p>Sorry, an unexpected error has occurred.</p>
+		</div>
+	);
 }
