@@ -41,7 +41,6 @@ function LoginForm() {
 		const dataLogin = { identifier: data.email, password: data.password };
 
 		try {
-			console.log(data);
 			const response = await axios.post(url, dataLogin);
 			console.log("response", response.data);
 			setAuth(response.data);
