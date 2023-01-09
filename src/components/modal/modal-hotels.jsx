@@ -120,7 +120,7 @@ function ModalHotels({ hotelsState }) {
 									/>
 								</div>
 							</div>
-							<label class="form-label" htmlFor="input-image">
+							<label className="form-label" htmlFor="input-image">
 								Image
 							</label>
 							<input
