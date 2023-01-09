@@ -23,11 +23,6 @@ function HotelsTable() {
 			});
 	}, []);
 
-	const schema = yup.object().shape({
-		title: yup.string().required("Please enter title"),
-		password: yup.string().required("Please enter your password"),
-	});
-
 	return (
 		<>
 			<Heading header={"Hotels"} />
@@ -51,7 +46,7 @@ function HotelsTable() {
 								<React.Fragment key={index}>
 									<tr className="align-middle">
 										<td className="d-none d-md-table-cell">
-											<img src={hotel.image[0].url} width="70px" />
+											<img src={hotel.image[0]?.url} width="70px" alt={hotel.title} />
 										</td>
 										<td>{hotel.id}</td>
 										<td>{hotel.title}</td>
