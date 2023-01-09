@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export default function ValidationError({ children }) {
 	return (
-		<div className="alert alert-danger mt-3" role="alert">
+		<div className="alert alert-danger m-3" role="alert">
 			{children}
 		</div>
 	);
