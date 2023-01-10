@@ -42,7 +42,6 @@ function LoginForm() {
 
 		try {
 			const response = await axios.post(url, dataLogin);
-			console.log("response", response.data);
 			setAuth(response.data);
 			navigate("/admin");
 		} catch (error) {

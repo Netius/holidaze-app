@@ -58,8 +58,10 @@ function ModalHotels({ hotelsState, getHotels }) {
 				});
 			}
 
+			let hotelId = hotelsState.id || response.data.id;
+
 			if (response.statusText === "OK") {
-				await addImageHotel(image, hotelsState.id, auth.jwt);
+				await addImageHotel(image, hotelId, auth.jwt);
 				setSaved(true);
 			}
 		} catch (error) {
