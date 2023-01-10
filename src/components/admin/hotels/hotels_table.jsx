@@ -1,10 +1,11 @@
-import React, { useEffect, useState, useReducer } from "react";
+import React, { useEffect, useState } from "react";
 import Heading from "../../../common/Heading";
 import SubHeading from "../../../common/subheading";
 import axios from "axios";
 import { HOTELS_URL } from "../../../constants/api";
 import ModalHotels from "../../modal/modal-hotels";
 import ModalDelete from "../../modal/modal-delete";
+import FormError from "../../../common/form-error";
 
 function HotelsTable() {
 	const [hotels, setHotels] = useState([]);
@@ -60,7 +61,6 @@ function HotelsTable() {
 					</tr>
 				</thead>
 				<tbody>
-					{/* TODO Need to implement error handler here */}
 					{hotels &&
 						hotels.map((hotel, index) => {
 							return (
@@ -107,6 +107,7 @@ function HotelsTable() {
 						})}
 				</tbody>
 			</table>
+			{error && <FormError>{error}</FormError>}
 
 			<ModalHotels hotelsState={hotelsState} getHotels={getHotels} />
 			<ModalDelete hotelsState={hotelsState} getHotels={getHotels} />
