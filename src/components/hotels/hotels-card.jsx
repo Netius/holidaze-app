@@ -29,10 +29,11 @@ function HotelsCard() {
 				hotels.map((hotel, index) => {
 					return (
 						<>
-							<div className="card my-4">
+							<div className="card my-4 hotel-card" key={index}>
 								<div className="row g-0">
-									<div className="col-md-4">
+									<div className="col-md-4 position-relative">
 										<img src={hotel.image[0]?.url} className="img-fluid rounded-start" alt="..." />
+										<span className="badge position-absolute hotel-card__price">${hotel.price},-</span>
 									</div>
 									<div className="col-md-8">
 										<div className="card-body">
