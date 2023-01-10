@@ -11,29 +11,42 @@ function DetailsPage() {
 	const { id } = useParams();
 	const navigate = useNavigate();
 
-	useEffect(() => {
-		console.log("ADSDAS", id);
-		if (!id) navigate("/login");
+	if (!id) navigate("/login");
 
-		const getHotel = async () => {
-			axios
-				.get(HOTELS_URL + id)
-				.then((response) => {
-					console.log(response);
-					setHotel(response.data);
-				})
-				.catch((error) => {
-					setError(error);
-					console.error(error);
-				});
-		};
-		getHotel();
-	}, []);
+	useEffect(() => {
+		axios
+			.get(HOTELS_URL + id)
+			.then((response) => {
+				setHotel(response.data);
+				console.log(response.data);
+			})
+			.catch((error) => {
+				setError(error);
+				console.error(error);
+			});
+	}, [hotel]);
+
+	console.log(hotel.length);
 	return (
 		<>
 			<div className="container">
 				<Heading header={hotel.title} />
 				<SubHeading header={hotel.description} />
+				{hotel && <img src={hotel.image[0]?.url} class="card-img-top" alt={hotel.title} />}
+
+				<div class="card mb-3">
+					{/* <img src={hotel.image[0]?.url} class="card-img-top" alt={hotel.title} /> */}
+					<div class="card-body">
+						<h5 class="card-title">{hotel.title}</h5>
+						<p class="card-text">
+							This is a wider card with supporting text below as a natural lead-in to additional content.
+							This content is a little bit longer.
+						</p>
+						<p class="card-text">
+							<small class="text-muted">Last updated 3 mins ago</small>
+						</p>
+					</div>
+				</div>
 			</div>
 		</>
 	);

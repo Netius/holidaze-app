@@ -6,6 +6,7 @@ import { HOTELS_URL } from "../../../constants/api";
 import ModalHotels from "../../modal/modal-hotels";
 import ModalDelete from "../../modal/modal-delete";
 import FormError from "../../../common/form-error";
+import { Link } from "react-router-dom";
 
 function HotelsTable() {
 	const [hotels, setHotels] = useState([]);
@@ -70,7 +71,11 @@ function HotelsTable() {
 											<img src={hotel.image[0]?.url} width="70px" alt={hotel.title} />
 										</td>
 										<td>{hotel.id}</td>
-										<td>{hotel.title}</td>
+										<td>
+											<Link to={`/details/${hotel.id}`} className="link-primary">
+												{hotel.title}
+											</Link>
+										</td>
 										<td>{hotel.price}</td>
 										<td>
 											<input type="checkbox" checked={hotel.featured} disabled className="form-check-input" />

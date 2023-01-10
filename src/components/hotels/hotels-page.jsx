@@ -8,7 +8,6 @@ function HotelsPage() {
 		<div className="container">
 			<Heading header={"Hotels"} />
 			<SubHeading header={"Check out our premium hotels."} />
-
 			<HotelsCard />
 		</div>
 	);

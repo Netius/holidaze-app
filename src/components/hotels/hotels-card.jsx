@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { HOTELS_URL } from "../../constants/api";
 import FormError from "../../common/form-error";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function HotelsCard() {
 	const [hotels, setHotels] = useState([]);
@@ -32,7 +32,7 @@ function HotelsCard() {
 						<div className="card my-4 hotel-card" key={index}>
 							<div className="row g-0">
 								<div className="col-md-4 position-relative">
-									<img src={hotel.image[0]?.url} className="img-fluid rounded-start" alt="..." />
+									<img src={hotel.image[0]?.url} className="img-fluid rounded-start" alt={hotel.title} />
 									<span className="badge position-absolute hotel-card__price">${hotel.price},-</span>
 								</div>
 								<div className="col-md-8">
