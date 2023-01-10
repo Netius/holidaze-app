@@ -6,7 +6,7 @@ import useLocalStorage from "../../hooks/useLocalStorage";
 import FormError from "../../common/form-error";
 import addImageHotel from "../../utils/help-functions";
 
-function ModalHotels({ hotelsState }) {
+function ModalHotels({ hotelsState, getHotels }) {
 	const [title, setTitle] = useState();
 	const [price, setPrice] = useState();
 	const [description, setDescription] = useState();
@@ -55,6 +55,7 @@ function ModalHotels({ hotelsState }) {
 			setError(error.message.toString());
 		} finally {
 			setSubmitting(false);
+			getHotels();
 		}
 	}
 

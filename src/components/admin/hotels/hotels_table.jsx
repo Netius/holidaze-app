@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useReducer } from "react";
 import Heading from "../../../common/Heading";
 import SubHeading from "../../../common/subheading";
 import axios from "axios";
 import { HOTELS_URL } from "../../../constants/api";
-
 import ModalHotels from "../../modal/modal-hotels";
 
 function HotelsTable() {
@@ -11,7 +10,7 @@ function HotelsTable() {
 	const [error, setError] = useState(null);
 	const [hotelsState, setHotelsState] = useState({});
 
-	useEffect(() => {
+	const getHotels = async () => {
 		axios
 			.get(HOTELS_URL)
 			.then((response) => {
@@ -21,6 +20,10 @@ function HotelsTable() {
 				setError(error);
 				console.error(error);
 			});
+	};
+
+	useEffect(() => {
+		getHotels();
 	}, []);
 
 	return (
@@ -75,7 +78,7 @@ function HotelsTable() {
 				</tbody>
 			</table>
 
-			<ModalHotels hotelsState={hotelsState} />
+			<ModalHotels hotelsState={hotelsState} getHotels={getHotels} />
 		</>
 	);
 }
