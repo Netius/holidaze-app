@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { HOTELS_URL } from "../../constants/api";
 import FormError from "../../common/form-error";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function HotelsCard() {
 	const [hotels, setHotels] = useState([]);
@@ -28,22 +29,23 @@ function HotelsCard() {
 			{hotels &&
 				hotels.map((hotel, index) => {
 					return (
-						<>
-							<div className="card my-4 hotel-card" key={index}>
-								<div className="row g-0">
-									<div className="col-md-4 position-relative">
-										<img src={hotel.image[0]?.url} className="img-fluid rounded-start" alt="..." />
-										<span className="badge position-absolute hotel-card__price">${hotel.price},-</span>
-									</div>
-									<div className="col-md-8">
-										<div className="card-body">
-											<h5 className="card-title">{hotel.title}</h5>
-											<p className="card-text">{hotel.description}</p>
-										</div>
+						<div className="card my-4 hotel-card" key={index}>
+							<div className="row g-0">
+								<div className="col-md-4 position-relative">
+									<img src={hotel.image[0]?.url} className="img-fluid rounded-start" alt="..." />
+									<span className="badge position-absolute hotel-card__price">${hotel.price},-</span>
+								</div>
+								<div className="col-md-8">
+									<div className="card-body">
+										<h5 className="card-title">{hotel.title}</h5>
+										<p className="card-text">{hotel.description}</p>
+										<Link to={`/details/${hotel.id}`} className="btn hotel-card__read mt-5">
+											Read more
+										</Link>
 									</div>
 								</div>
 							</div>
-						</>
+						</div>
 					);
 				})}
 			{error && <FormError>{error}</FormError>}

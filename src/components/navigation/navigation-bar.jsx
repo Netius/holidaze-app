@@ -7,6 +7,7 @@ import HomePage from "../home/home-page";
 import HotelsPage from "../hotels/hotels-page";
 import LoginPage from "../login/login-page";
 import AuthContext from "../../context/AuthContext";
+import DetailsPage from "../details/details-page";
 
 function NavigationBar() {
 	const [auth, setAuth] = useContext(AuthContext);
@@ -86,6 +87,7 @@ function NavigationBar() {
 				<Route path="/contact" element={<ContactPage />} />
 				<Route path="/login" element={<LoginPage />} />
 				<Route path="/admin" element={<AdminPage />} />
+				<Route path="/details/:id" element={<DetailsPage />} />
 				<Route path="*" element={<ErrorPage to="/" />} />
 			</Routes>
 		</Router>

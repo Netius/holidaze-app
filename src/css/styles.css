@@ -10828,5 +10828,13 @@ body {
   font-size: 1.3rem;
   background-color: #2E50A6;
 }
+.hotel-card__read {
+  background-color: #A63E26;
+  color: white;
+}
+.hotel-card__read:hover {
+  background-color: #F26E50;
+  color: white;
+}
 
 /*# sourceMappingURL=styles.css.map */
