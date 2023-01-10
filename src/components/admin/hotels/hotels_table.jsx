@@ -4,11 +4,13 @@ import SubHeading from "../../../common/subheading";
 import axios from "axios";
 import { HOTELS_URL } from "../../../constants/api";
 import ModalHotels from "../../modal/modal-hotels";
+import ModalDelete from "../../modal/modal-delete";
 
 function HotelsTable() {
 	const [hotels, setHotels] = useState([]);
 	const [error, setError] = useState(null);
 	const [hotelsState, setHotelsState] = useState({});
+	const [hotelsDelete, setHotelsDelete] = useState({});
 
 	const getHotels = async () => {
 		axios
@@ -60,7 +62,7 @@ function HotelsTable() {
 										<td>
 											<button
 												type="button"
-												className="btn btn-sm btn-info"
+												className="btn btn-sm btn-primary"
 												data-bs-toggle="modal"
 												data-bs-target="#exampleModal"
 												aria-expanded="false"
@@ -69,6 +71,18 @@ function HotelsTable() {
 												onClick={() => setHotelsState(hotel)}
 											>
 												<i className="far fa-edit"></i>
+											</button>
+											<button
+												type="button"
+												className="btn btn-sm btn-danger ms-2"
+												data-bs-toggle="modal"
+												data-bs-target="#deleteModal"
+												aria-expanded="false"
+												aria-controls="deleteHotel"
+												title="Delete hotel"
+												onClick={() => setHotelsDelete(hotel)}
+											>
+												<i className="fa fa-trash"></i>
 											</button>
 										</td>
 									</tr>
@@ -79,6 +93,7 @@ function HotelsTable() {
 			</table>
 
 			<ModalHotels hotelsState={hotelsState} getHotels={getHotels} />
+			<ModalDelete hotelsState={hotelsState} getHotels={getHotels} />
 		</>
 	);
 }
