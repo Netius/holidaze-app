@@ -32,15 +32,31 @@ function HotelsTable() {
 		<>
 			<Heading header={"Hotels"} />
 			<SubHeading header={"Review, add or remove hotels on the website"} />
+			<button
+				type="button"
+				className="btn btn-sm btn-success float-end"
+				data-bs-toggle="modal"
+				data-bs-target="#exampleModal"
+				aria-expanded="false"
+				aria-controls="addHotel"
+				title="Add hotel"
+				onClick={() => setHotelsState({})}
+			>
+				<i className="fa fa-plus me-2 "></i>
+				Add a hotel
+			</button>
 
 			<table className="table table-striped">
 				<thead>
 					<tr>
-						<th scope="col"></th>
+						<th scope="col" className="d-none d-md-table-cell">
+							Image
+						</th>
 						<th scope="col">Id</th>
 						<th scope="col">Title</th>
 						<th scope="col">Price</th>
 						<th scope="col">Featured</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>

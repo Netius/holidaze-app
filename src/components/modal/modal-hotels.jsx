@@ -41,11 +41,23 @@ function ModalHotels({ hotelsState, getHotels }) {
 
 		try {
 			setSubmitting(true);
-			const response = await axios.put(`${HOTELS_URL}${hotelsState.id}`, data, {
-				headers: {
-					Authorization: `Bearer ${auth.jwt}`,
-				},
-			});
+			let response = "";
+
+			// Condition to check if is a new entry or updating
+			if (Object.keys(hotelsState).length) {
+				response = await axios.put(`${HOTELS_URL}${hotelsState.id}`, data, {
+					headers: {
+						Authorization: `Bearer ${auth.jwt}`,
+					},
+				});
+			} else {
+				response = await axios.post(`${HOTELS_URL}`, data, {
+					headers: {
+						Authorization: `Bearer ${auth.jwt}`,
+					},
+				});
+			}
+
 			if (response.statusText === "OK") {
 				await addImageHotel(image, hotelsState.id, auth.jwt);
 				setSaved(true);
