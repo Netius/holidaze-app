@@ -15,7 +15,7 @@ function HotelsTable() {
 	const [hotelsDelete, setHotelsDelete] = useState({});
 
 	const getHotels = async () => {
-		axios
+		await axios
 			.get(HOTELS_URL)
 			.then((response) => {
 				setHotels(response.data);

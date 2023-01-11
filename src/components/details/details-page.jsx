@@ -7,26 +7,29 @@ import SubHeading from "../../common/subheading";
 
 function DetailsPage() {
 	const [error, setError] = useState(null);
-	const [hotel, setHotel] = useState([]);
+	const [hotel, setHotel] = useState("");
 	const { id } = useParams();
 	const navigate = useNavigate();
 
 	if (!id) navigate("/login");
 
-	useEffect(() => {
-		axios
+	const getHotel = async () => {
+		await axios
 			.get(HOTELS_URL + id)
 			.then((response) => {
-				setHotel(response.data);
 				console.log(response.data);
+				setHotel(response.data);
 			})
 			.catch((error) => {
 				setError(error);
 				console.error(error);
 			});
-	}, [hotel]);
+	};
 
-	console.log(hotel.length);
+	useEffect(() => {
+		getHotel();
+	}, []);
+
 	return (
 		<>
 			<div className="container">
