@@ -8,7 +8,7 @@ import HotelsTable from "./hotels/hotels_table";
 function AdminPage() {
 	const [auth, setAuth] = useContext(AuthContext);
 	const navigate = useNavigate();
-	console.log(auth.user);
+
 	useEffect(() => {
 		if (!auth) navigate("/login");
 	});
