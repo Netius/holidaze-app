@@ -4,7 +4,7 @@ import SpinnerLoading from "../../common/spinner-loading";
 import { HOTELS_URL } from "../../constants/api";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import FormError from "../../common/form-error";
-import addImageHotel from "../../utils/help-functions";
+import { addImageHotel } from "../../utils/help-functions";
 
 function ModalHotels({ hotelsState, getHotels }) {
 	const [title, setTitle] = useState();

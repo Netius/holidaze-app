@@ -5,12 +5,16 @@ import { useParams, useNavigate } from "react-router-dom";
 import Heading from "../../common/Heading";
 import SubHeading from "../../common/subheading";
 import HotelsMessages from "./hotels-messages";
+import { calculateRating } from "../../utils/help-functions";
+import FormError from "../../common/form-error";
+import HotelRating from "../../common/hotel-rating";
 
 function DetailsPage() {
 	const [error, setError] = useState(null);
 	const [hotel, setHotel] = useState("");
 	const { id } = useParams();
 	const navigate = useNavigate();
+	let averageRatings = 0;
 
 	if (!id) navigate("/login");
 
@@ -30,7 +34,7 @@ function DetailsPage() {
 	useEffect(() => {
 		getHotel();
 	}, []);
-
+	// console.log("calculateRating", hotel);
 	return (
 		<>
 			{hotel && (
@@ -43,6 +47,7 @@ function DetailsPage() {
 								alt={hotel.title}
 							></div>
 							<Heading header={hotel.title} />
+							<HotelRating rating={averageRatings} />
 							<span className="badge position-absolute hotel-card__price">$ {hotel.price},-</span>
 							<SubHeading header={hotel.description} />
 						</div>
@@ -52,6 +57,7 @@ function DetailsPage() {
 					<HotelsMessages hotel={hotel} getHotel={getHotel} />
 				</>
 			)}
+			{error && <FormError>{error}</FormError>}
 		</>
 	);
 }

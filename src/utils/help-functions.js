@@ -1,6 +1,6 @@
 import { UPLOAD_URL } from "../constants/api";
 
-export default async function addImageHotel(formFile, id, token) {
+export async function addImageHotel(formFile, id, token) {
     if (!formFile) return;
 
     var formData = new FormData();
@@ -27,4 +27,16 @@ export default async function addImageHotel(formFile, id, token) {
     } catch (error) {
         console.log(error);
     }
+}
+
+export function calculateRating(hotel) {
+    let averageRatings = 0;
+    const ratings = hotel.hotels_messages.map((h) => h.rating);
+    if (ratings.length > 0) {
+        averageRatings = Math.round(ratings.reduce((total, next) => total + next, 0) / ratings.length);
+    }
+
+
+
+    return averageRatings;
 }
