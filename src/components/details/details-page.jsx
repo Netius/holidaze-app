@@ -4,6 +4,7 @@ import { HOTELS_URL } from "../../constants/api";
 import { useParams, useNavigate } from "react-router-dom";
 import Heading from "../../common/Heading";
 import SubHeading from "../../common/subheading";
+import HotelsMessages from "./hotels-messages";
 
 function DetailsPage() {
 	const [error, setError] = useState(null);
@@ -30,6 +31,8 @@ function DetailsPage() {
 		getHotel();
 	}, []);
 
+	console.log(hotel);
+
 	return (
 		<>
 			{hotel && (
@@ -45,7 +48,9 @@ function DetailsPage() {
 							<span className="badge position-absolute hotel-card__price">$ {hotel.price},-</span>
 							<SubHeading header={hotel.description} />
 						</div>
-						<button className="btn btn-primary mt-4">Book now</button>
+						<button className="btn btn-lg btn-primary mt-4">Book now</button>
+
+						<HotelsMessages hotel={hotel} />
 					</div>
 				</>
 			)}

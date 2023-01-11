@@ -23,7 +23,7 @@ function HotelsCard() {
 	useEffect(() => {
 		getHotels();
 	}, []);
-
+	console.log(hotels);
 	return (
 		<>
 			{hotels &&
