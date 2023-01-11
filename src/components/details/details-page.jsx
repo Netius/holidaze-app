@@ -31,8 +31,6 @@ function DetailsPage() {
 		getHotel();
 	}, []);
 
-	console.log(hotel);
-
 	return (
 		<>
 			{hotel && (
@@ -49,9 +47,9 @@ function DetailsPage() {
 							<SubHeading header={hotel.description} />
 						</div>
 						<button className="btn btn-lg btn-primary mt-4">Book now</button>
-
-						<HotelsMessages hotel={hotel} />
 					</div>
+
+					<HotelsMessages hotel={hotel} getHotel={getHotel} />
 				</>
 			)}
 		</>
