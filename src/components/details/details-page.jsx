@@ -35,13 +35,17 @@ function DetailsPage() {
 			{hotel && (
 				<>
 					<div className="container hero">
-						<div
-							className="hero__image"
-							style={{ backgroundImage: `url(${hotel.image[0]?.url})` }}
-							alt={hotel.title}
-						></div>
-						<Heading header={hotel.title} />
-						<SubHeading header={hotel.description} />
+						<div className="position-relative">
+							<div
+								className="hero__image"
+								style={{ backgroundImage: `url(${hotel.image[0]?.url})` }}
+								alt={hotel.title}
+							></div>
+							<Heading header={hotel.title} />
+							<span className="badge position-absolute hotel-card__price">$ {hotel.price},-</span>
+
+							<SubHeading header={hotel.description} />
+						</div>
 					</div>
 				</>
 			)}

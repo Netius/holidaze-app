@@ -33,7 +33,7 @@ function HotelsCard() {
 							<div className="row g-0">
 								<div className="col-md-4 position-relative">
 									<img src={hotel.image[0]?.url} className="img-fluid rounded-start" alt={hotel.title} />
-									<span className="badge position-absolute hotel-card__price">${hotel.price},-</span>
+									<span className="badge position-absolute hotel-card__price">$ {hotel.price},-</span>
 								</div>
 								<div className="col-md-8">
 									<div className="card-body">
