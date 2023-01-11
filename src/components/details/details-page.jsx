@@ -43,9 +43,9 @@ function DetailsPage() {
 							></div>
 							<Heading header={hotel.title} />
 							<span className="badge position-absolute hotel-card__price">$ {hotel.price},-</span>
-
 							<SubHeading header={hotel.description} />
 						</div>
+						<button className="btn btn-primary mt-4">Book now</button>
 					</div>
 				</>
 			)}
