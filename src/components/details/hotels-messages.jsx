@@ -6,7 +6,7 @@ function HotelsMessages({ hotel }) {
 	console.log(hotel.hotels_messages.length);
 	return (
 		<>
-			<div className="mt-5 pt-3">
+			<div className="my-5 py-3">
 				<Heading header={"Reviews"} />
 
 				<SubHeading header={"What our customers are saying."} />
