@@ -1,7 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Heading from "../../common/Heading";
-import SubHeading from "../../common/subheading";
 import AuthContext from "../../context/AuthContext";
 import HotelsTable from "./hotels/hotels_table";
 

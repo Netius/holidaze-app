@@ -10837,4 +10837,12 @@ body {
   color: white;
 }
 
+.hero__image {
+  height: 50vh;
+  background-position: 50% 60%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
 /*# sourceMappingURL=styles.css.map */
