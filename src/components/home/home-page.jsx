@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Heading from "../../common/Heading";
+import SubHeading from "../../common/subheading";
+import HotelsCard from "../hotels/hotels-card";
 import HomeJumbotron from "./home-jumbotron";
 
 function HomePage() {
@@ -7,7 +10,11 @@ function HomePage() {
 	return (
 		<>
 			<HomeJumbotron setText={setSearchText} />
-			{searchText}
+			<div className="container py-5">
+				<Heading header={"Hotels"} />
+				<SubHeading header={"Book your next destination"} />
+				<HotelsCard />
+			</div>
 		</>
 	);
 }
