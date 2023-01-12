@@ -12,7 +12,6 @@ function HotelsTable() {
 	const [hotels, setHotels] = useState([]);
 	const [error, setError] = useState(null);
 	const [hotelsState, setHotelsState] = useState({});
-	const [hotelsDelete, setHotelsDelete] = useState({});
 
 	const getHotels = async () => {
 		await axios
@@ -33,7 +32,7 @@ function HotelsTable() {
 	return (
 		<>
 			<Heading header={"Hotels"} />
-			<SubHeading header={"Review, add or remove hotels on the website"} />
+			<SubHeading header={"Add, edit or remove hotels on the website"} />
 			<button
 				type="button"
 				className="btn btn-sm btn-success float-end"
@@ -101,7 +100,7 @@ function HotelsTable() {
 												aria-expanded="false"
 												aria-controls="deleteHotel"
 												title="Delete hotel"
-												onClick={() => setHotelsDelete(hotel)}
+												onClick={() => setHotelsState(hotel)}
 											>
 												<i className="fa fa-trash"></i>
 											</button>
