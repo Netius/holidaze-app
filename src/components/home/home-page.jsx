@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import HomeJumbotron from "./home-jumbotron";
 
 function HomePage() {
+	const [searchText, setSearchText] = useState("");
+
 	return (
 		<>
-			<HomeJumbotron />
+			<HomeJumbotron setText={setSearchText} />
+			{searchText}
 		</>
 	);
 }
