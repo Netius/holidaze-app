@@ -10,7 +10,7 @@ import ModalDeleteMessage from "../../modal/modal-delete-mesage";
 function MessagesTable() {
 	const [messages, setMessages] = useState([]);
 	const [error, setError] = useState(null);
-	const [messageDelete, setMessageDelete] = useState({});
+	const [messageDelete, setMessageDelete] = useState([]);
 
 	const getMessages = async () => {
 		await axios

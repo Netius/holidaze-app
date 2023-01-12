@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import HotelRating from "../../common/hotel-rating";
 import { calculateRating } from "../../utils/help-functions";
 
-function HotelsCard() {
+function HotelsCard({ showFeatured }) {
 	const [hotels, setHotels] = useState([]);
 	const [error, setError] = useState(null);
 
@@ -14,7 +14,11 @@ function HotelsCard() {
 		axios
 			.get(HOTELS_URL)
 			.then((response) => {
-				setHotels(response.data);
+				if (showFeatured) {
+					setHotels(response.data.filter((r) => r.featured === showFeatured));
+				} else {
+					setHotels(response.data);
+				}
 			})
 			.catch((error) => {
 				setError(error);

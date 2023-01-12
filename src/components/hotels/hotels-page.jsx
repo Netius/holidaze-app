@@ -7,7 +7,7 @@ function HotelsPage() {
 	return (
 		<div className="container">
 			<Heading header={"Hotels"} />
-			<SubHeading header={"Check out our premium hotels."} />
+			<SubHeading header={"Check out our hotels around Bergen"} />
 			<HotelsCard />
 		</div>
 	);

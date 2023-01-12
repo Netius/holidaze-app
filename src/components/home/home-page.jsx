@@ -11,9 +11,9 @@ function HomePage() {
 		<>
 			<HomeJumbotron setText={setSearchText} />
 			<div className="container py-5">
-				<Heading header={"Hotels"} />
-				<SubHeading header={"Book your next destination"} />
-				<HotelsCard />
+				<Heading header={"Featured hotels"} />
+				<SubHeading header={"Book your next holidays in Bergen"} />
+				<HotelsCard showFeatured={true} />
 			</div>
 		</>
 	);
