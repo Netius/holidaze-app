@@ -30,7 +30,6 @@ function HotelsCard() {
 		<>
 			{hotels &&
 				hotels.map((hotel, index) => {
-					let averageRatings = calculateRating(hotel);
 					return (
 						<div className="card my-4 hotel-card" key={index}>
 							<div className="row g-0">
@@ -41,7 +40,7 @@ function HotelsCard() {
 									<div className="card-body">
 										<span className="badge float-end hotel-card__price">$ {hotel.price},-</span>
 										<h5 className="card-title">{hotel.title}</h5>
-										<HotelRating rating={averageRatings} />
+										<HotelRating rating={calculateRating(hotel)} />
 										<p className="card-text">{hotel.description}</p>
 										<Link to={`/details/${hotel.id}`} className="btn hotel-card__read mt-5">
 											Read more

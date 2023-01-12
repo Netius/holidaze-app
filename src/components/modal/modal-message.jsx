@@ -78,7 +78,7 @@ function ModalMessage({ hotel, getHotel }) {
 							<div className="my-3 d-flex justify-content-between">
 								<div>
 									<label htmlFor="hotel-rating" className="form-label">
-										Rating
+										Rating (1 - 5)
 									</label>
 									<input
 										id="hotel-rating"

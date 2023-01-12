@@ -14,7 +14,6 @@ function DetailsPage() {
 	const [hotel, setHotel] = useState("");
 	const { id } = useParams();
 	const navigate = useNavigate();
-	let averageRatings = 0;
 
 	if (!id) navigate("/login");
 
@@ -22,7 +21,6 @@ function DetailsPage() {
 		await axios
 			.get(HOTELS_URL + id)
 			.then((response) => {
-				console.log(response.data);
 				setHotel(response.data);
 			})
 			.catch((error) => {
@@ -34,7 +32,7 @@ function DetailsPage() {
 	useEffect(() => {
 		getHotel();
 	}, []);
-	// console.log("calculateRating", hotel);
+
 	return (
 		<>
 			{hotel && (
@@ -47,7 +45,7 @@ function DetailsPage() {
 								alt={hotel.title}
 							></div>
 							<Heading header={hotel.title} />
-							<HotelRating rating={averageRatings} />
+							<HotelRating rating={calculateRating(hotel)} />
 							<span className="badge position-absolute hotel-card__price">$ {hotel.price},-</span>
 							<SubHeading header={hotel.description} />
 						</div>
