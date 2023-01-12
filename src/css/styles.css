@@ -10809,6 +10809,10 @@ body {
   min-height: calc(100vh - 122px) !important;
 }
 
+.container__background {
+  background-color: rgba(242, 110, 80, 0.4);
+}
+
 .navbar__logo {
   color: #F26E50;
   font-family: "montserrat-bold", sans-serif;

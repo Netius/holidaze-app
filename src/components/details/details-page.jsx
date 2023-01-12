@@ -17,6 +17,10 @@ function DetailsPage() {
 
 	if (!id) navigate("/login");
 
+	const showAlert = () => {
+		alert("Coming soon!");
+	};
+
 	const getHotel = async () => {
 		await axios
 			.get(HOTELS_URL + id)
@@ -40,7 +44,7 @@ function DetailsPage() {
 					<div className="container hero">
 						<div className="position-relative">
 							<div
-								className="hero__image"
+								className="hero__image mt-5"
 								style={{ backgroundImage: `url(${hotel.image[0]?.url})` }}
 								alt={hotel.title}
 							></div>
@@ -49,10 +53,13 @@ function DetailsPage() {
 							<span className="badge position-absolute hotel-card__price">$ {hotel.price},-</span>
 							<SubHeading header={hotel.description} />
 						</div>
-						<button className="btn btn-lg btn-primary mt-4">Book now</button>
+						<button className="btn btn-lg btn-primary mt-4" onClick={showAlert}>
+							Book now
+						</button>
 					</div>
-
-					<HotelsMessages hotel={hotel} getHotel={getHotel} />
+					<div className="container__background">
+						<HotelsMessages hotel={hotel} getHotel={getHotel} />
+					</div>
 				</>
 			)}
 			{error && <FormError>{error}</FormError>}

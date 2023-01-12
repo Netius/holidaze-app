@@ -8,10 +8,10 @@ import ModalMessage from "../modal/modal-message";
 function HotelsMessages({ hotel, getHotel }) {
 	return (
 		<>
-			<div className="container my-5 py-3">
+			<div className="container mt-5 py-5">
 				<div>
 					<button
-						className="btn btn-warning float-end"
+						className="btn btn-dark float-end"
 						data-bs-toggle="modal"
 						data-bs-target="#messageModal"
 						aria-expanded="false"
@@ -26,7 +26,9 @@ function HotelsMessages({ hotel, getHotel }) {
 				</div>
 				<div className="mt-5">
 					{hotel.hotels_messages.length == 0 ? (
-						<p className="fs-4 py-4">Be the first to leave a review!</p>
+						<ul className="list-group my-4">
+							<li className="list-group-item py-3">Be the first to leave a review!</li>
+						</ul>
 					) : (
 						<ul className="list-group my-4">
 							{hotel.hotels_messages.map((h, index) => {
