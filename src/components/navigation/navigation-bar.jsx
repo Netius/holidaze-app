@@ -19,7 +19,7 @@ function NavigationBar() {
 	return (
 		<Router>
 			<nav className="navbar navbar-expand-lg bg-dark navbar-dark">
-				<div className="container-fluid">
+				<div className="container">
 					<Link className="fs-3 navbar-brand navbar__logo" title="Holidaze" to="/">
 						Holidaze
 					</Link>

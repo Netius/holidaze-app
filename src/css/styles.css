@@ -10813,6 +10813,11 @@ body {
   background-color: rgba(242, 110, 80, 0.4);
 }
 
+.ms-n5 {
+  margin-left: -33px;
+  padding: 10px;
+}
+
 .navbar__logo {
   color: #F26E50;
   font-family: "montserrat-bold", sans-serif;
@@ -10846,7 +10851,7 @@ body {
 }
 
 .hero__image {
-  height: 50vh;
+  height: 60vh;
   background-position: 50% 70%;
   background-repeat: no-repeat;
   background-size: cover;
