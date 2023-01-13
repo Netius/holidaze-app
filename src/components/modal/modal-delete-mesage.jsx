@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import SpinnerLoading from "../../common/spinner-loading";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import FormError from "../../common/form-error";
-import { HOTELS_MESSAGES, HOTELS_URL } from "../../constants/api";
+import { HOTELS_MESSAGES } from "../../constants/api";
 
 function ModalDeleteMessage({ message, getMessages }) {
 	const [submitting, setSubmitting] = useState(false);

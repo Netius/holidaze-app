@@ -4,6 +4,7 @@ import Bergen from "../../images/bergen-night.jpg";
 import { Typeahead } from "react-bootstrap-typeahead";
 import { HOTELS_URL } from "../../constants/api";
 import { useNavigate } from "react-router-dom";
+import FormError from "../../common/form-error";
 
 function HomeJumbotron({ setText }) {
 	const [hotels, setHotels] = useState([]);
@@ -71,6 +72,7 @@ function HomeJumbotron({ setText }) {
 					</div>
 				</div>
 			</div>
+			{error && <FormError>{error}</FormError>}
 		</div>
 	);
 }

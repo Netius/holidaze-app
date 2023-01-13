@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Heading from "../../common/Heading";
 import PageTitle from "../../common/pageTitle";
 import SubHeading from "../../common/subheading";
@@ -7,12 +7,10 @@ import HotelsCard from "../hotels/hotels-card";
 import HomeJumbotron from "./home-jumbotron";
 
 function HomePage() {
-	const [searchText, setSearchText] = useState("");
-
 	return (
 		<>
 			<PageTitle header={"Home"} />
-			<HomeJumbotron setText={setSearchText} />
+			<HomeJumbotron />
 			<div className="container py-5">
 				<Heading header={"Featured hotels"} />
 				<SubHeading header={"Book your next holidays in Bergen"} />
