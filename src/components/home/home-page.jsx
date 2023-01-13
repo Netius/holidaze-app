@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Heading from "../../common/Heading";
+import PageTitle from "../../common/pageTitle";
 import SubHeading from "../../common/subheading";
 import ContactForm from "../contact/contact-form";
 import HotelsCard from "../hotels/hotels-card";
@@ -10,6 +11,7 @@ function HomePage() {
 
 	return (
 		<>
+			<PageTitle header={"Home"} />
 			<HomeJumbotron setText={setSearchText} />
 			<div className="container py-5">
 				<Heading header={"Featured hotels"} />

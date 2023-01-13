@@ -8,6 +8,7 @@ import HotelsMessages from "./hotels-messages";
 import { calculateRating } from "../../utils/help-functions";
 import FormError from "../../common/form-error";
 import HotelRating from "../../common/hotel-rating";
+import PageTitle from "../../common/pageTitle";
 
 function DetailsPage() {
 	const [error, setError] = useState(null);
@@ -48,6 +49,7 @@ function DetailsPage() {
 								style={{ backgroundImage: `url(${hotel.image[0]?.url})` }}
 								alt={hotel.title}
 							></div>
+							<PageTitle header={"Details"} />
 							<Heading header={hotel.title} />
 							<HotelRating rating={calculateRating(hotel)} />
 							<span className="badge position-absolute hotel-card__price">$ {hotel.price},-</span>

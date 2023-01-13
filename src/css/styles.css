@@ -10810,7 +10810,7 @@ body {
 }
 
 .container__background {
-  background-color: rgba(242, 110, 80, 0.4);
+  background-color: rgba(242, 110, 80, 0.3);
 }
 
 .ms-n5 {
@@ -10859,7 +10859,7 @@ body {
 }
 
 .contact__container {
-  background-color: rgba(211, 211, 211, 0.3098039216);
+  background-color: rgba(242, 110, 80, 0.3);
 }
 .contact__image {
   height: 60vh;

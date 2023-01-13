@@ -42,7 +42,7 @@ function NavigationBar() {
 								</Link>
 							</li>
 							<li className="nav-item">
-								<Link className="nav-link" title="Contact us" to="/contact">
+								<Link exact="true" className="nav-link" title="Contact us" to="/contact">
 									Contact us
 								</Link>
 							</li>
