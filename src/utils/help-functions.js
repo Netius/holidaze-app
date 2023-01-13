@@ -21,7 +21,7 @@ export async function addImageHotel(formFile, id, token) {
     try {
         const response = await fetch(UPLOAD_URL, options);
         if (!response.ok) {
-            throw "Error: Image to hotel not uploaded.";
+            console.error("Error: Image to hotel not uploaded.")
         }
 
     } catch (error) {

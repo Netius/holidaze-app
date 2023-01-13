@@ -25,7 +25,7 @@ function HotelsMessages({ hotel, getHotel }) {
 					<SubHeading header={"What our customers are saying."} />
 				</div>
 				<div className="mt-5">
-					{hotel.hotels_messages.length == 0 ? (
+					{hotel.hotels_messages.length === 0 ? (
 						<ul className="list-group my-4">
 							<li className="list-group-item py-3">Be the first to leave a review!</li>
 						</ul>

@@ -19,7 +19,9 @@ function HomePage() {
 				<HotelsCard showFeatured={true} />
 			</div>
 			<div className="contact__container py-5">
-				<ContactForm />
+				<div className="container">
+					<ContactForm />
+				</div>
 			</div>
 		</>
 	);

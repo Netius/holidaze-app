@@ -36,7 +36,7 @@ function DetailsPage() {
 
 	useEffect(() => {
 		getHotel();
-	}, []);
+	}, [getHotel]);
 
 	return (
 		<>

@@ -10816,6 +10816,10 @@ body {
 .ms-n5 {
   margin-left: -33px;
   padding: 10px;
+  top: 5px;
+  position: absolute;
+  color: black;
+  right: 15px;
 }
 
 .navbar__logo {
