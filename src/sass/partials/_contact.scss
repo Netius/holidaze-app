@@ -1,0 +1,13 @@
+.contact{
+    &__container{
+        background-color: #d3d3d34f;
+    }
+    &__image{
+        height: 60vh;
+        max-height: 500px;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+}

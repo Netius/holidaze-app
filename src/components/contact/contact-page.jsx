@@ -1,10 +1,10 @@
 import React from "react";
-import Heading from "../../common/Heading";
+import ContactForm from "./contact-form";
 
 function ContactPage() {
 	return (
-		<div className="container-fluid text-center">
-			<Heading header={"Contact us"} />
+		<div className="container">
+			<ContactForm />
 		</div>
 	);
 }

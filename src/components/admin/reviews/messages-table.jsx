@@ -17,7 +17,6 @@ function MessagesTable() {
 			.get(HOTELS_MESSAGES)
 			.then((response) => {
 				setMessages(response.data);
-				console.log(response.data);
 			})
 			.catch((error) => {
 				setError(error);

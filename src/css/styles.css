@@ -10858,4 +10858,16 @@ body {
   position: relative;
 }
 
+.contact__container {
+  background-color: rgba(211, 211, 211, 0.3098039216);
+}
+.contact__image {
+  height: 60vh;
+  max-height: 500px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
 /*# sourceMappingURL=styles.css.map */
