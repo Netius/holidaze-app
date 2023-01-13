@@ -1,8 +1,31 @@
-import React, { useRef } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Bergen from "../../images/bergen-night.jpg";
+import { Typeahead } from "react-bootstrap-typeahead";
+import { HOTELS_URL } from "../../constants/api";
+import { useNavigate } from "react-router-dom";
 
 function HomeJumbotron({ setText }) {
-	const inputRef = useRef(null);
+	const [hotels, setHotels] = useState([]);
+	const [error, setError] = useState(null);
+	const [selected, setSelected] = useState([]);
+	const navigate = useNavigate();
+
+	const getHotels = async () => {
+		await axios
+			.get(HOTELS_URL)
+			.then((response) => {
+				setHotels(response.data);
+			})
+			.catch((error) => {
+				setError(error);
+				console.error(error);
+			});
+	};
+
+	useEffect(() => {
+		getHotels();
+	}, []);
 
 	return (
 		<div className="p-5 mb-4 hero__image" style={{ backgroundImage: `url(${Bergen})` }}>
@@ -12,34 +35,39 @@ function HomeJumbotron({ setText }) {
 				<div className="container  py-4">
 					<div className="row mt-5">
 						<div className="col-md-6 mx-auto">
-							<div className="input-group">
-								<input
-									ref={inputRef}
-									className="form-control border-end-0 border"
-									type="search"
-									placeholder="e.g. Hotel Bergen"
-									id="search-input"
-									onChange={(e) => setText(e.target.value)}
-								/>
-								<span className="input-group-append">
-									<button
-										className="btn btn-outline-secondary  bg-white border-start-0 border-bottom-0 border ms-n5"
-										type="button"
-									>
-										<i className="fa fa-search"></i>
-									</button>
-								</span>
-							</div>
+							<Typeahead
+								size={"lg"}
+								highlightOnlyResult
+								labelKey="title"
+								id={"search-hotels"}
+								emptyLabel={"No hotel with that name..."}
+								clearButton
+								placeholder="e.g. Hotel Bergen"
+								onChange={(result) => {
+									navigate("details/" + result[0].id);
+									setSelected(result);
+								}}
+								options={hotels}
+								selected={selected}
+								renderMenuItemChildren={(option) => (
+									<div key={option.id}>
+										<img
+											alt={option.title}
+											src={option.image[0]?.url}
+											style={{
+												height: "30px",
+												marginRight: "10px",
+												width: "30px",
+												borderRadius: "5px",
+											}}
+										/>
+										<span>{option.title}</span>
+									</div>
+								)}
+							>
+								<i className="fa fa-search ms-n5 fa-lg"></i>
+							</Typeahead>
 						</div>
-					</div>
-					<div className="d-grid col-3 mx-auto">
-						<button
-							className="btn hotel-card__read  btn-lg mt-4 shadow"
-							type="button"
-							onClick={() => setText(inputRef.current.value)}
-						>
-							Search
-						</button>
 					</div>
 				</div>
 			</div>
