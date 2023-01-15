@@ -1,7 +1,7 @@
 {
   "name": "holidaze-app",
-  "version": "0.1.4",
-  "homepage": "/",
+  "version": "0.1.5",
+  "homepage": "/htmlcss/holidaze/",
   "private": true,
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",

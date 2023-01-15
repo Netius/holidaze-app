@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 import AdminPage from "../admin/admin-page";
 import ContactPage from "../contact/contact-page";
 import ErrorPage from "../error/error-page";
@@ -20,7 +20,7 @@ function NavigationBar() {
 		<Router>
 			<nav className="navbar navbar-expand-lg bg-dark navbar-dark">
 				<div className="container">
-					<Link className="fs-3 navbar-brand navbar__logo" title="Holidaze" to="/">
+					<Link exact="true" className="fs-3 navbar-brand navbar__logo" title="Holidaze" to="/">
 						Holidaze
 					</Link>
 					<button
@@ -37,7 +37,7 @@ function NavigationBar() {
 					<div className="collapse navbar-collapse" id="navbarNav">
 						<ul className="navbar-nav ms-auto">
 							<li className="nav-item">
-								<Link className="nav-link" title="See our hotels" to="/hotels">
+								<Link exact="true" className="nav-link" title="See our hotels" to="/hotels">
 									Hotels
 								</Link>
 							</li>
@@ -72,17 +72,12 @@ function NavigationBar() {
 									</Link>
 								</li>
 							)}
-							{/* <li className="nav-item">
-								<Link className="nav-link" title="Login for administrator" to="/login">
-									Login
-								</Link>
-							</li> */}
 						</ul>
 					</div>
 				</div>
 			</nav>
 			<Routes>
-				<Route exact="true" path="/hotels" element={<HotelsPage />} />
+				<Route path="/hotels" element={<HotelsPage />} />
 				<Route path="/" element={<HomePage />} />
 				<Route path="/contact" element={<ContactPage />} />
 				<Route path="/login" element={<LoginPage />} />
