@@ -1,32 +1,11 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import Bergen from "../../images/bergen-night.jpg";
 import { Typeahead } from "react-bootstrap-typeahead";
-import { HOTELS_URL } from "../../constants/api";
 import { useNavigate } from "react-router-dom";
-import FormError from "../../common/form-error";
 
-function HomeJumbotron({ setText }) {
-	const [hotels, setHotels] = useState([]);
-	const [error, setError] = useState(null);
+function HomeJumbotron({ setText, hotels }) {
 	const [selected, setSelected] = useState([]);
 	const navigate = useNavigate();
-
-	const getHotels = async () => {
-		await axios
-			.get(HOTELS_URL)
-			.then((response) => {
-				setHotels(response.data);
-			})
-			.catch((error) => {
-				setError(error);
-				console.error(error);
-			});
-	};
-
-	useEffect(() => {
-		getHotels();
-	}, []);
 
 	return (
 		<div className="p-5 mb-4 hero__image" style={{ backgroundImage: `url(${Bergen})` }}>
@@ -72,7 +51,6 @@ function HomeJumbotron({ setText }) {
 					</div>
 				</div>
 			</div>
-			{error && <FormError>{error}</FormError>}
 		</div>
 	);
 }

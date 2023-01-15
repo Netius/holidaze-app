@@ -1,35 +1,9 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { HOTELS_URL } from "../../constants/api";
-import FormError from "../../common/form-error";
+import React from "react";
 import { Link } from "react-router-dom";
 import HotelRating from "../../common/hotel-rating";
 import { calculateRating } from "../../utils/help-functions";
 
-function HotelsCard({ showFeatured }) {
-	const [hotels, setHotels] = useState([]);
-	const [error, setError] = useState(null);
-
-	const getHotels = async () => {
-		axios
-			.get(HOTELS_URL)
-			.then((response) => {
-				if (showFeatured) {
-					setHotels(response.data.filter((r) => r.featured === showFeatured));
-				} else {
-					setHotels(response.data);
-				}
-			})
-			.catch((error) => {
-				setError(error);
-				console.error(error);
-			});
-	};
-
-	useEffect(() => {
-		getHotels();
-	}, []);
-
+function HotelsCard({ showFeatured, hotels }) {
 	return (
 		<>
 			{hotels &&
@@ -55,7 +29,6 @@ function HotelsCard({ showFeatured }) {
 						</div>
 					);
 				})}
-			{error && <FormError>{error}</FormError>}
 		</>
 	);
 }
