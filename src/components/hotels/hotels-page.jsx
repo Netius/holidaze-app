@@ -6,20 +6,25 @@ import HotelsCard from "./hotels-card";
 import { HOTELS_URL } from "../../constants/api";
 import axios from "axios";
 import FormError from "../../common/form-error";
+import GrowingSpinnerLoader from "../../common/growing-spinner-loader";
 
 function HotelsPage() {
 	const [hotels, setHotels] = useState([]);
 	const [error, setError] = useState(null);
+	const [loading, setLoading] = useState(false);
 
 	const getHotels = async () => {
+		setLoading(true);
 		axios
 			.get(HOTELS_URL)
 			.then((response) => {
 				setHotels(response.data);
+				setLoading(false);
 			})
 			.catch((error) => {
 				setError(error);
 				console.error(error);
+				setLoading(false);
 			});
 	};
 
@@ -33,6 +38,7 @@ function HotelsPage() {
 			<SubHeading header={"Check out our hotels around Bergen"} />
 			<HotelsCard hotels={hotels} />
 			{error && <FormError>{error}</FormError>}
+			{loading && <GrowingSpinnerLoader />}
 		</div>
 	);
 }

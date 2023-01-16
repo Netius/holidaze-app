@@ -8,19 +8,25 @@ import HomeJumbotron from "./home-jumbotron";
 import { HOTELS_URL } from "../../constants/api";
 import axios from "axios";
 import FormError from "../../common/form-error";
+import GrowingSpinnerLoader from "../../common/growing-spinner-loader";
 
 function HomePage() {
 	const [hotels, setHotels] = useState([]);
 	const [error, setError] = useState(null);
+	const [loading, setLoading] = useState(false);
 
 	const getHotels = async () => {
+		setLoading(true);
+
 		await axios
 			.get(HOTELS_URL)
 			.then((response) => {
 				setHotels(response.data);
+				setLoading(false);
 			})
 			.catch((error) => {
 				setError(error);
+				setLoading(false);
 				console.error(error);
 			});
 	};
@@ -38,6 +44,7 @@ function HomePage() {
 				<SubHeading header={"Book your next holidays in Bergen"} />
 				<HotelsCard hotels={hotels.filter((r) => r.featured === true)} />
 				{error && <FormError>{error}</FormError>}
+				{loading && <GrowingSpinnerLoader />}
 			</div>
 			<div className="contact__container py-5">
 				<div className="container">

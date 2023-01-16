@@ -6,21 +6,26 @@ import SubHeading from "../../../common/subheading";
 import { Link } from "react-router-dom";
 import FormError from "../../../common/form-error";
 import ModalDeleteMessage from "../../modal/modal-delete-mesage";
+import GrowingSpinnerLoader from "../../../common/growing-spinner-loader";
 
 function MessagesTable() {
 	const [messages, setMessages] = useState([]);
 	const [error, setError] = useState(null);
 	const [messageDelete, setMessageDelete] = useState([]);
+	const [loading, setLoading] = useState(false);
 
 	const getMessages = async () => {
+		setLoading(true);
 		await axios
 			.get(HOTELS_MESSAGES)
 			.then((response) => {
 				setMessages(response.data);
+				setLoading(false);
 			})
 			.catch((error) => {
 				setError(error);
 				console.error(error);
+				setLoading(false);
 			});
 	};
 
@@ -78,6 +83,7 @@ function MessagesTable() {
 					</tbody>
 				</table>
 				{error && <FormError>{error}</FormError>}
+				{loading && <GrowingSpinnerLoader />}
 			</div>
 			<ModalDeleteMessage message={messageDelete} getMessages={getMessages} />
 		</>

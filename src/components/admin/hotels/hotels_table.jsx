@@ -7,21 +7,26 @@ import ModalHotels from "../../modal/modal-hotels";
 import ModalDelete from "../../modal/modal-delete";
 import FormError from "../../../common/form-error";
 import { Link } from "react-router-dom";
+import GrowingSpinnerLoader from "../../../common/growing-spinner-loader";
 
 function HotelsTable() {
 	const [hotels, setHotels] = useState([]);
 	const [error, setError] = useState(null);
 	const [hotelsState, setHotelsState] = useState({});
+	const [loading, setLoading] = useState(false);
 
 	const getHotels = async () => {
+		setLoading(true);
 		await axios
 			.get(HOTELS_URL)
 			.then((response) => {
 				setHotels(response.data);
+				setLoading(false);
 			})
 			.catch((error) => {
 				setError(error);
 				console.error(error);
+				setLoading(false);
 			});
 	};
 
@@ -112,6 +117,7 @@ function HotelsTable() {
 				</tbody>
 			</table>
 			{error && <FormError>{error}</FormError>}
+			{loading && <GrowingSpinnerLoader />}
 
 			<ModalHotels hotelsState={hotelsState} getHotels={getHotels} />
 			<ModalDelete hotelsState={hotelsState} getHotels={getHotels} />

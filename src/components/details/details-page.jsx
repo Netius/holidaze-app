@@ -9,10 +9,12 @@ import { calculateRating } from "../../utils/help-functions";
 import FormError from "../../common/form-error";
 import HotelRating from "../../common/hotel-rating";
 import PageTitle from "../../common/pageTitle";
+import GrowingSpinnerLoader from "../../common/growing-spinner-loader";
 
 function DetailsPage() {
 	const [error, setError] = useState(null);
 	const [hotel, setHotel] = useState("");
+	const [loading, setLoading] = useState(false);
 	const { id } = useParams();
 	const navigate = useNavigate();
 
@@ -23,14 +25,17 @@ function DetailsPage() {
 	};
 
 	const getHotel = async () => {
+		setLoading(true);
 		await axios
 			.get(HOTELS_URL + id)
 			.then((response) => {
 				setHotel(response.data);
+				setLoading(false);
 			})
 			.catch((error) => {
 				setError(error);
 				console.error(error);
+				setLoading(false);
 			});
 	};
 
@@ -65,6 +70,7 @@ function DetailsPage() {
 				</>
 			)}
 			{error && <FormError>{error}</FormError>}
+			{loading && <GrowingSpinnerLoader />}
 		</>
 	);
 }
