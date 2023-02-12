@@ -1,10 +1,107 @@
-# Getting Started with Create React App
+# Project Exam 2 - Holidaze
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An e-commerce website created with React with login for admins and control over Hotels and Reviews.
+Both sections are responsive and the website will be populated by a Strapi API deployed on Heroku using Cloudinary as third party CMS for images.
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+This exam project showcase all I throught in the last four years at university (partime).
+The site have a good user experience and UI design, following today’s trends and design patterns.
+
+### Customer-facing pages
+
+- Home page |
+  Banner with an image that is uploaded to Strapi.
+  A list of featured products.
+  A search bar typeahead
+
+- Hotels page |
+  A list of all Hotels added via Admin page - Strapi.
+  A search text box.
+
+- Hotels details page |
+  This page is reached by a user clicking on a hotel.
+  A rating star based on reviews
+  Reviews written by users
+
+- Contact us page |
+  A simple contact us page with some html5 validation
+
+### Admin-facing pages
+
+- Login/Logout |
+  Login form that allows administrator users to login. Local storage to keep the user logged in.
+
+- Add/edit/remove hotels |
+  Allow admin to added, edit or remove products from Strapi Api.
+
+- Hotel images |
+  Allow admin to added, edit or remove images from Cloudinary.
+
+- Reviews |
+  Allow admin to remove hotels reviews from Strapi.
+
+## Built With
+
+You can list a the tech stack that you've used over here
+
+- [Javascript](https://www.javascript.com/) Vanilla javascript
+- [Bootstrap](https://getbootstrap.com)
+- [Sass](https://sass-lang.com/)
+- [Strapi](https://strapi.io/)
+- [Heroku](https://heroku.com/)
+- [Cloudinary](https://cloudinary.com/)
+
+## Getting Started
+
+### Installing
+
+1. Clone the repo:
+
+```bash
+git clone git@github.com:Netius/DogShop.git
+```
+
+2. Install the dependencies:
+
+```
+npm install
+```
+
+3. Install Sass
+
+You need to install sass, run and watch the file \sass\styles.scss
+https://sass-lang.com/
+
+4. Install a Strapi
+
+You will need to have a Strapi installation running in your PC to full use this project.
+Api structure in Strapi:
+
+- Products (Collection Types) |
+  title - Text
+  description - Text
+  price - Number
+  image - Media
+  image_url - Text
+  featured - Boolean
+
+- Home (Single Type) |
+  hero_banner - Media
+  hero_banner_alt_text - Text
+
+- Users
+  Create a admin user and password. This will be used to login to admin page in the site as well.
+
+To use in development with Strapi deployed locally change the file - js/constants/strapiUrl.js
+
+5. Cloudinary (optional)
+   With you want to keep your images in a third party CMS check out this link:
+   https://strapi.io/blog/add-cloudinary-support-to-your-strapi-application
+
+### Running
+
+Right click on the index.html and choose "Open with live server" in Visual Studio Code.
 
 ### `npm start`
 
@@ -39,32 +136,10 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Contributing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This is a private project used in the university. I will keep the code unchanged and contribuition is not needed..
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contact
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[upneto.com](https://upneto.com/#contact)
