@@ -31,12 +31,9 @@ export async function addImageHotel(formFile, id, token) {
 
 export function calculateRating(hotel) {
     let averageRatings = 0;
-    const ratings = hotel.hotels_messages.map((h) => h.rating);
-    if (ratings.length > 0) {
+    const ratings = hotel.attributes?.hotels_messages?.data.map((h) => h.attributes.rating);
+    if (ratings?.length > 0) {
         averageRatings = Math.round(ratings.reduce((total, next) => total + next, 0) / ratings.length);
     }
-
-
-
     return averageRatings;
 }
