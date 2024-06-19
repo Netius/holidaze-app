@@ -3,7 +3,7 @@ import Heading from "../../common/Heading";
 import PageTitle from "../../common/pageTitle";
 import SubHeading from "../../common/subheading";
 import HotelsCard from "./hotels-card";
-import { HOTELS_URL } from "../../constants/api";
+import { HOTELS_URL, POPULATE_ALL } from "../../constants/api";
 import axios from "axios";
 import FormError from "../../common/form-error";
 import GrowingSpinnerLoader from "../../common/growing-spinner-loader";
@@ -16,9 +16,9 @@ function HotelsPage() {
 	const getHotels = async () => {
 		setLoading(true);
 		axios
-			.get(HOTELS_URL)
+			.get(HOTELS_URL + POPULATE_ALL)
 			.then((response) => {
-				setHotels(response.data);
+				setHotels(response.data.data);
 				setLoading(false);
 			})
 			.catch((error) => {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { HOTELS_URL } from "../../constants/api";
+import { HOTELS_URL, POPULATE_ALL } from "../../constants/api";
 import { useParams, useNavigate } from "react-router-dom";
 import Heading from "../../common/Heading";
 import SubHeading from "../../common/subheading";
@@ -27,9 +27,9 @@ function DetailsPage() {
 	const getHotel = async () => {
 		setLoading(true);
 		await axios
-			.get(HOTELS_URL + id)
+			.get(HOTELS_URL + id + POPULATE_ALL)
 			.then((response) => {
-				setHotel(response.data);
+				setHotel(response.data.data);
 				setLoading(false);
 			})
 			.catch((error) => {
@@ -51,14 +51,14 @@ function DetailsPage() {
 						<div className="position-relative">
 							<div
 								className="hero__image mt-5"
-								style={{ backgroundImage: `url(${hotel.image[0]?.url})` }}
-								alt={hotel.title}
+								style={{ backgroundImage: `url(${hotel.attributes.image_url})` }}
+								alt={hotel.attributes.title}
 							></div>
 							<PageTitle header={"Details"} />
-							<Heading header={hotel.title} />
+							<Heading header={hotel.attributes.title} />
 							<HotelRating rating={calculateRating(hotel)} />
-							<span className="badge position-absolute hotel-card__price">$ {hotel.price},-</span>
-							<SubHeading header={hotel.description} />
+							<span className="badge position-absolute hotel-card__price">$ {hotel.attributes.price},-</span>
+							<SubHeading header={hotel.attributes.description} />
 						</div>
 						<button className="btn btn-lg btn-primary mt-4" onClick={showAlert}>
 							Book now

@@ -25,22 +25,22 @@ function HotelsMessages({ hotel, getHotel }) {
 					<SubHeading header={"What our customers are saying."} />
 				</div>
 				<div className="mt-5">
-					{hotel.hotels_messages.length === 0 ? (
+					{hotel.attributes.hotels_messages.data.length === 0 ? (
 						<ul className="list-group my-4">
 							<li className="list-group-item py-3">Be the first to leave a review!</li>
 						</ul>
 					) : (
 						<ul className="list-group my-4">
-							{hotel.hotels_messages.map((h, index) => {
+							{hotel.attributes.hotels_messages.data.map((h, index) => {
 								return (
 									<React.Fragment key={index}>
 										<li className="list-group-item py-3">
-											<HotelRating rating={h.rating} />
-											<p className="fs-5">{h.Message}</p>
+											<HotelRating rating={h.attributes.rating} />
+											<p className="fs-5">{h.attributes.Message}</p>
 											<p className="text-muted">
-												{h.Author}
+												{h.attributes.Author}
 												<br></br>
-												<small>{Moment(h.published_at).format("DD MMM YYYY")}</small>
+												<small>{Moment(h.attributes.publishedAt).format("DD MMM YYYY")}</small>
 											</p>
 										</li>
 									</React.Fragment>

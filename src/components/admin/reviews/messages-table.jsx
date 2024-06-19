@@ -19,7 +19,7 @@ function MessagesTable() {
 		await axios
 			.get(HOTELS_MESSAGES)
 			.then((response) => {
-				setMessages(response.data);
+				setMessages(response.data.data);
 				setLoading(false);
 			})
 			.catch((error) => {

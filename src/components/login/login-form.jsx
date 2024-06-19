@@ -41,7 +41,7 @@ function LoginForm() {
 		const dataLogin = { identifier: data.email, password: data.password };
 
 		try {
-			const response = await axios.post(url, dataLogin);
+			const response = await axios.post(url, {...dataLogin});
 			setAuth(response.data);
 			navigate("/admin");
 		} catch (error) {
