@@ -12,14 +12,14 @@ function HotelsCard({ showFeatured, hotels }) {
 						<div className="card my-4 hotel-card" key={index}>
 							<div className="row g-0">
 								<div className="col-md-4 position-relative">
-									<img src={hotel.image[0]?.url} className="img-fluid rounded-start" alt={hotel.title} />
+									<img src={hotel.attributes.image_url} className="img-fluid rounded-start" alt={hotel.attributes.title} />
 								</div>
 								<div className="col-md-8">
 									<div className="card-body">
-										<span className="badge float-end hotel-card__price">$ {hotel.price},-</span>
-										<h5 className="card-title">{hotel.title}</h5>
+										<span className="badge float-end hotel-card__price">$ {hotel.attributes.price},-</span>
+										<h5 className="card-title">{hotel.attributes.title}</h5>
 										<HotelRating rating={calculateRating(hotel)} />
-										<p className="card-text">{hotel.description}</p>
+										<p className="card-text">{hotel.attributes.description}</p>
 										<Link to={`/details/${hotel.id}`} className="btn hotel-card__read mt-5">
 											Read more
 										</Link>

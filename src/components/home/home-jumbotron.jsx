@@ -24,16 +24,16 @@ function HomeJumbotron({ setText, hotels }) {
 								clearButton
 								placeholder="e.g. Hotel Bergen"
 								onChange={(result) => {
-									navigate("details/" + result[0].id);
+									navigate("details/" + result[0].hotelId);
 									setSelected(result);
 								}}
-								options={hotels}
+								options={hotels.map(hotel => ({...hotel.attributes, hotelId: hotel.id}) )}
 								selected={selected}
 								renderMenuItemChildren={(option) => (
-									<div key={option.id}>
+									<div key={option}>
 										<img
 											alt={option.title}
-											src={option.image[0]?.url}
+											src={option.image_url}
 											style={{
 												height: "30px",
 												marginRight: "10px",
