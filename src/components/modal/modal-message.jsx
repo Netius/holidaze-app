@@ -21,10 +21,11 @@ function ModalMessage({ hotel, getHotel }) {
 		setSaved(null);
 
 		const data = {
-			Author: author,
-			Message: message,
-			rating: rating,
-			hotel: hotel.id,
+			data: { 
+				Author: author, 
+				Message: message, 
+				rating: rating, 
+				hotel: hotel.id },
 		};
 
 		try {
