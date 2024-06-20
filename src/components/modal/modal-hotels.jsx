@@ -19,10 +19,10 @@ function ModalHotels({ hotelsState, getHotels }) {
 	const [saved, setSaved] = useState(null);
 
 	useEffect(() => {
-		setTitle(hotelsState.title);
-		setPrice(hotelsState.price);
-		setDescription(hotelsState.description);
-		setFeatured(hotelsState.featured);
+		setTitle(hotelsState?.attributes?.title);
+		setPrice(hotelsState?.attributes?.price);
+		setDescription(hotelsState?.attributes?.description);
+		setFeatured(hotelsState?.attributes?.featured);
 		setError(null);
 		setSaved(null);
 	}, [hotelsState]);
@@ -33,10 +33,13 @@ function ModalHotels({ hotelsState, getHotels }) {
 		setSaved(null);
 
 		const data = {
-			title: title,
-			price: price,
-			description: description,
-			featured: featured,
+			data:
+						{
+							title: title,
+							price: price,
+							description: description,
+							featured: featured,
+						}
 		};
 
 		try {
