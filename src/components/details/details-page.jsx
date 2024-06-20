@@ -10,6 +10,7 @@ import FormError from "../../common/form-error";
 import HotelRating from "../../common/hotel-rating";
 import PageTitle from "../../common/pageTitle";
 import GrowingSpinnerLoader from "../../common/growing-spinner-loader";
+import NoHotelImage from "../../images/no-hotel-image.jpg";
 
 function DetailsPage() {
 	const [error, setError] = useState(null);
@@ -51,7 +52,7 @@ function DetailsPage() {
 						<div className="position-relative">
 							<div
 								className="hero__image mt-5"
-								style={{ backgroundImage: `url(${hotel.attributes.image_url})` }}
+								style={{ backgroundImage: `url(${hotel.attributes.image_url || NoHotelImage})`}}
 								alt={hotel.attributes.title}
 							></div>
 							<PageTitle header={"Details"} />

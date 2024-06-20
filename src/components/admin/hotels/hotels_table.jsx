@@ -8,6 +8,7 @@ import ModalDelete from "../../modal/modal-delete";
 import FormError from "../../../common/form-error";
 import { Link } from "react-router-dom";
 import GrowingSpinnerLoader from "../../../common/growing-spinner-loader";
+import NoHotelImage from "../../../images/no-hotel-image.jpg";
 
 function HotelsTable() {
 	const [hotels, setHotels] = useState([]);
@@ -72,7 +73,7 @@ function HotelsTable() {
 								<React.Fragment key={index}>
 									<tr className="align-middle">
 										<td className="d-none d-md-table-cell">
-											<img src={hotel.attributes.image_url} width="70px" alt={hotel.attributes.title} />
+											<img src={hotel.attributes.image_url || NoHotelImage} width="70px" alt={hotel.attributes.title} />
 										</td>
 										<td>{hotel.id}</td>
 										<td>
