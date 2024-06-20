@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { HOTELS_URL, POPULATE_ALL } from "../../constants/api";
+import { HOTELS_URL, POPULATE_ALL, BASE_URL } from "../../constants/api";
 import { useParams, useNavigate } from "react-router-dom";
 import Heading from "../../common/Heading";
 import SubHeading from "../../common/subheading";
@@ -52,7 +52,7 @@ function DetailsPage() {
 						<div className="position-relative">
 							<div
 								className="hero__image mt-5"
-								style={{ backgroundImage: `url(${hotel.attributes.image_url || NoHotelImage})`}}
+								style={{ backgroundImage: `url(${hotel.attributes.image.data ? BASE_URL + hotel.attributes.image?.data[0].attributes.url : NoHotelImage})`}}
 								alt={hotel.attributes.title}
 							></div>
 							<PageTitle header={"Details"} />

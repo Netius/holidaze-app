@@ -61,7 +61,7 @@ function ModalHotels({ hotelsState, getHotels }) {
 				});
 			}
 
-			let hotelId = hotelsState.id || response.data.id;
+			let hotelId = hotelsState.id || response.data.data.id; // Uses hotelsState.id if updating or response.data.data.id when creating new
 
 			if (response.statusText === "OK") {
 				await addImageHotel(image, hotelId, auth.jwt);

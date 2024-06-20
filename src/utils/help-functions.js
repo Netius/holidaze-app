@@ -7,7 +7,7 @@ export async function addImageHotel(formFile, id, token) {
 
     formData.append("files", formFile.files[0]);
     formData.append('refId', id);
-    formData.append('ref', 'api::hotels.hotel'); // #TODO Getting error adding image to Strapi
+    formData.append('ref', 'api::hotel.hotel');
     formData.append('field', "image");
 
     const options = {

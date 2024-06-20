@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import HotelRating from "../../common/hotel-rating";
 import { calculateRating } from "../../utils/help-functions";
 import NoHotelImage from "../../images/no-hotel-image.jpg";
+import { BASE_URL } from "../../constants/api";
+
 
 function HotelsCard({ showFeatured, hotels }) {
 	return (
@@ -13,7 +15,7 @@ function HotelsCard({ showFeatured, hotels }) {
 						<div className="card my-4 hotel-card" key={index}>
 							<div className="row g-0">
 								<div className="col-md-4 position-relative">
-									<img src={hotel.attributes.image_url || NoHotelImage} className="img-fluid rounded-start" alt={hotel.attributes.title} />
+									<img src={hotel.attributes.image.data ? BASE_URL + hotel.attributes.image?.data[0].attributes.url : NoHotelImage} className="img-fluid rounded-start" alt={hotel.attributes.title} />
 								</div>
 								<div className="col-md-8">
 									<div className="card-body">

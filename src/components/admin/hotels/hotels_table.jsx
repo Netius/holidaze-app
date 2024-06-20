@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Heading from "../../../common/Heading";
 import SubHeading from "../../../common/subheading";
 import axios from "axios";
-import { HOTELS_URL } from "../../../constants/api";
+import { HOTELS_URL, POPULATE_ALL, BASE_URL } from "../../../constants/api";
 import ModalHotels from "../../modal/modal-hotels";
 import ModalDelete from "../../modal/modal-delete";
 import FormError from "../../../common/form-error";
@@ -19,7 +19,7 @@ function HotelsTable() {
 	const getHotels = async () => {
 		setLoading(true);
 		await axios
-			.get(HOTELS_URL)
+			.get(HOTELS_URL + POPULATE_ALL)
 			.then((response) => {
 				setHotels(response.data.data);
 				setLoading(false);
@@ -73,7 +73,8 @@ function HotelsTable() {
 								<React.Fragment key={index}>
 									<tr className="align-middle">
 										<td className="d-none d-md-table-cell">
-											<img src={hotel.attributes.image_url || NoHotelImage} width="70px" alt={hotel.attributes.title} />
+											<img src={hotel.attributes.image.data ? BASE_URL + hotel.attributes.image?.data[0].attributes.url : NoHotelImage} width="70px" alt={hotel.attributes.title} />
+											
 										</td>
 										<td>{hotel.id}</td>
 										<td>
