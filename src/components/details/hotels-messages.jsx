@@ -1,11 +1,14 @@
-import React from "react";
+import React,{ useContext } from "react";
 import Heading from "../../common/Heading";
 import SubHeading from "../../common/subheading";
 import Moment from "moment";
 import HotelRating from "../../common/hotel-rating";
 import ModalMessage from "../modal/modal-message";
+import AuthContext from "../../context/AuthContext";
 
 function HotelsMessages({ hotel, getHotel }) {
+	const [auth, setAuth] = useContext(AuthContext);
+	console.log(auth)
 	return (
 		<>
 			<div className="container mt-5 py-5">
@@ -17,9 +20,10 @@ function HotelsMessages({ hotel, getHotel }) {
 						aria-expanded="false"
 						aria-controls="messageHotel"
 						title="Add a review"
+						disabled={!auth}
 					>
 						<i className="fa fa-plus me-2"></i>
-						Add a review
+						{auth ? 'Add a review' : 'Log in to add a review'}
 					</button>
 					<Heading header={"Reviews"} />
 					<SubHeading header={"What our customers are saying."} />
