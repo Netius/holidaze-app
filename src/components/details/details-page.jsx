@@ -57,12 +57,20 @@ function DetailsPage() {
 							<PageTitle header={"Details"} />
 							<Heading header={hotel.attributes.title} />
 							<HotelRating rating={calculateRating(hotel)} />
-							<span className="badge position-absolute hotel-card__price">$ {hotel.attributes.price},-</span>
 							<SubHeading header={hotel.attributes.description} />
 						</div>
-						<button className="btn btn-lg btn-primary mt-4" onClick={showAlert}>
-							Book now
-						</button>
+
+						<div class="row g-0 align-items-center mt-5">
+							<div class="col">
+								<button className="btn btn-lg btn-primary" onClick={showAlert}>
+									Book now
+								</button>
+							</div>
+							<div class="col text-end">
+								<p className="mb-0 badge hotel-card__price">$ {hotel.attributes.price},-</p>
+							</div>
+						</div>
+					
 					</div>
 					<div className="container__background">
 						<HotelsMessages hotel={hotel} getHotel={getHotel} />
