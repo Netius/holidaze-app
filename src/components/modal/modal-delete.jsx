@@ -51,7 +51,7 @@ function ModalDelete({ hotelsState, getHotels }) {
 						</div>
 						<div className="modal-body">
 							<p>
-								Are you sure you want to delete <b>{hotelsState.title}</b>?
+								Are you sure you want to delete <b>{hotelsState?.attributes?.title}</b>?
 							</p>
 						</div>
 
