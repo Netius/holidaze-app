@@ -18,7 +18,7 @@ function AdminPage() {
 			<div className="container">
 				<PageTitle header={"Admin"} />
 				<HotelsTable />
-				{/* <MessagesTable /> */}
+				<MessagesTable />
 			</div>
 		</>
 	);

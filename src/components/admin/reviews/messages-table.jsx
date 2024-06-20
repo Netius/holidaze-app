@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { HOTELS_MESSAGES } from "../../../constants/api";
+import { HOTELS_MESSAGES, POPULATE_ALL } from "../../../constants/api";
 import Heading from "../../../common/Heading";
 import SubHeading from "../../../common/subheading";
 import { Link } from "react-router-dom";
@@ -17,7 +17,7 @@ function MessagesTable() {
 	const getMessages = async () => {
 		setLoading(true);
 		await axios
-			.get(HOTELS_MESSAGES)
+			.get(HOTELS_MESSAGES + POPULATE_ALL)
 			.then((response) => {
 				setMessages(response.data.data);
 				setLoading(false);
@@ -55,13 +55,13 @@ function MessagesTable() {
 									<React.Fragment key={index}>
 										<tr className="align-middle">
 											<td>
-												<Link to={`/details/${message.hotel.id}`} className="link-primary">
-													{message.hotel.title}
+												<Link to={`/details/${message.attributes.hotel.data.id}`} className="link-primary">
+													{message.attributes.hotel.data.attributes.title}
 												</Link>
 											</td>
-											<td>{message.Author}</td>
-											<td>{message.Message}</td>
-											<td>{message.rating}</td>
+											<td>{message.attributes.Author}</td>
+											<td>{message.attributes.Message}</td>
+											<td>{message.attributes.rating}</td>
 											<td>
 												<button
 													type="button"
