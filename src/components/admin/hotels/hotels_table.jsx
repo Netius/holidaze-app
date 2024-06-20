@@ -20,7 +20,7 @@ function HotelsTable() {
 		await axios
 			.get(HOTELS_URL)
 			.then((response) => {
-				setHotels(response.data);
+				setHotels(response.data.data);
 				setLoading(false);
 			})
 			.catch((error) => {
@@ -72,17 +72,17 @@ function HotelsTable() {
 								<React.Fragment key={index}>
 									<tr className="align-middle">
 										<td className="d-none d-md-table-cell">
-											<img src={hotel.image[0]?.url} width="70px" alt={hotel.title} />
+											<img src={hotel.attributes.image_url} width="70px" alt={hotel.attributes.title} />
 										</td>
 										<td>{hotel.id}</td>
 										<td>
 											<Link to={`/details/${hotel.id}`} className="link-primary">
-												{hotel.title}
+												{hotel.attributes.title}
 											</Link>
 										</td>
-										<td>{hotel.price}</td>
+										<td>{hotel.attributes.price}</td>
 										<td>
-											<input type="checkbox" checked={hotel.featured} disabled className="form-check-input" />
+											<input type="checkbox" checked={hotel.attributes.featured} disabled className="form-check-input" />
 										</td>
 										<td>
 											<button
