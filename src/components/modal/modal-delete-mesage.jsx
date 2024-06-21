@@ -34,7 +34,7 @@ function ModalDeleteMessage({ message, getMessages }) {
 			getMessages();
 		}
 	}
-	console.log(message);
+	
 	return (
 		<div className="modal" id="deleteMessageModal" tabIndex="-1">
 			<div className="modal-dialog">
