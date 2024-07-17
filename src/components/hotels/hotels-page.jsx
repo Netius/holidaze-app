@@ -22,7 +22,7 @@ function HotelsPage() {
 				setLoading(false);
 			})
 			.catch((error) => {
-				setError(error);
+				setError(error.message);
 				console.error(error);
 				setLoading(false);
 			});
@@ -36,7 +36,9 @@ function HotelsPage() {
 			<PageTitle header={"Hotels"} />
 			<Heading header={"Hotels"} />
 			<SubHeading header={"Check out our hotels around Bergen"} />
-			<HotelsCard hotels={hotels} />
+			{hotels && 
+				<HotelsCard hotels={hotels} />
+			}
 			{error && <FormError>{error}</FormError>}
 			{loading && <GrowingSpinnerLoader />}
 		</div>

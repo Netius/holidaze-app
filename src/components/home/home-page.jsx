@@ -25,7 +25,7 @@ function HomePage() {
 				setLoading(false);
 			})
 			.catch((error) => {
-				setError(error);
+				setError(error.message);
 				setLoading(false);
 				console.error(error);
 			});
@@ -38,7 +38,9 @@ function HomePage() {
 	return (
 		<>
 			<PageTitle header={"Home"} />
-			<HomeJumbotron hotels={hotels} />
+			{hotels && 
+				<HomeJumbotron hotels={hotels} />
+			}
 			<div className="container py-5">
 				<Heading header={"Featured hotels"} />
 				<SubHeading header={"Book your next holidays in Bergen"} />
