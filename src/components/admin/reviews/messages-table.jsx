@@ -23,7 +23,7 @@ function MessagesTable() {
 				setLoading(false);
 			})
 			.catch((error) => {
-				setError(error);
+				setError(error.message);
 				console.error(error);
 				setLoading(false);
 			});
